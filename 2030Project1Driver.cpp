@@ -31,7 +31,7 @@ int main()
 		cin >> input;
 			if (input == "M" || input == "m")
 			{
-				cout << "'D' or 'Day' = daily summary\n'W' or 'Week' = weekly summary\n'Q' or 'Quit' = quit\n" << endl;
+				cout << "'D' or 'Day' = daily summary\n'W' or 'Week' = weekly summary\n'N' or 'Next' = next day\n'Q' or 'Quit' = quit\n" << endl;
 			}
 			else if (input == "D" || input == "d" || input == "Day")
 			{
