@@ -4,6 +4,9 @@
 // @date 10.25.2018
 // @file 2030Project1.h
 
+// Project 1, Blood Sugar, inputs multiple daily blood sugar readings over the course of two weeks
+// and outputs daily and weekly sums, maxes, mins, and counts, as well as the highest weekly delta.
+
 #ifndef PROJ1_H_
 #define PROJ1_H_
 
@@ -27,34 +30,40 @@ private:
 
 	bloodSugar bs;
 	twoWeeks tw;
-	float dailySum[14];
-	float dailyMax[14];
-	float dailyMin[14];
-	int dailyCount[14];
+	float dailySum[14] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	float dailyMax[14] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	float dailyMin[14] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	int dailyCount[14] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 
-	float weeklySum[2];
-	float weeklyMax[2];
-	float weeklyMin[2];
-	int weeklyCount[2];
+	float weeklySum[2] = { 0,0 };
+	float weeklyMax[2] = { 0,0 };
+	float weeklyMin[2] = { 0,0 };
+	int weeklyCount[2] = { 0,0 };
 
-	float weeklyDelta[6];
+	float weeklyDelta[6] = { 0,0,0,0,0,0 };
+	int maxDelta = 0;
+
+	int countW1 = 0;
+	int countW2 = 0;
 
 public:
 
+	BloodSugar();
+	~BloodSugar();
 	void processData(float input, int day);
 	void dailySummary(int day);
 	void weeklySummary(int day);
-	void nextDay();
 	float sumPerDay(int &day);
 	float maxPerDay(int &day);
 	float minPerDay(int &day);
 	int countPerDay(const int &day);
-	float sumPerWeek(int &week);
+	float sumPerWeek(int &d, int &week);
 	float maxPerWeek(int &week);
 	float minPerWeek(int &week);
 	int countPerWeek(int &week);
-	int dayDelta(int &day);
+	int dayDelta(int &day, int &week);
 	bool isFloat(const string &in);
+	void outputData(int &d);
 
 };
 

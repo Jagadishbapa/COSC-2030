@@ -24,13 +24,11 @@ int main()
 	int day = 1;
 	BloodSugar bs;
 
-	cout << "*************BLOOD SUGAR MONITOR*************" << endl << endl;
-	while (input != "Q" || input != "Quit")
+	cout << "**************************BLOOD SUGAR MONITOR*************************" << endl << endl;
+	while (day <= 14)
 	{
 		cout << "Enter blood sugar level or 'M' for menu of input options: " << endl;
 		cin >> input;
-//		if (!(stof(input) <= 0))
-//		{
 			if (input == "M" || input == "m")
 			{
 				cout << "'D' or 'Day' = daily summary\n'W' or 'Week' = weekly summary\n'Q' or 'Quit' = quit\n" << endl;
@@ -46,13 +44,16 @@ int main()
 			else if (input == "N" || input == "n" || input == "Next")
 			{
 				day++;
-				bs.nextDay();
 			}
 			else if (input == "Q" || input == "q" || input == "Quit")
 			{
-
+				cout << endl;
+				cout << "You ended on Day " << day << ". Thank you for taking care of your health!" << endl << endl;
+				cout << "**********************************************************************" << endl << endl;
+				system("pause");
+				return 0;
 			}
-			else if (bs.isFloat(input))
+			else if ((bs.isFloat(input)) && (stof(input) > 0))
 			{
 				bs.processData(stof(input), day);
 			}
@@ -60,10 +61,11 @@ int main()
 			{
 				// do nothing
 			}
-//		}
 	}
 	
-	cout << "Thank you for taking care of your health!" << endl;
+	cout << endl;
+	cout << "Your two weeks is complete. Thank you for taking care of your health!" << endl << endl;
+	cout << "**************************************************************" << endl << endl;
 
 	system("pause");
 	return 0;
